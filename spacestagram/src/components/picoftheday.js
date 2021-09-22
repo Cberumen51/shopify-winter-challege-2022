@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import {Card, CardImg, CardBody, CardTitle,CardText, CardSubtitle, Button } from 'reactstrap';
+import {Card, CardImg, CardBody, CardTitle,CardText, CardSubtitle} from 'reactstrap';
+import LikeButton from './likebutton'
+
+
 
 
 
 export default function NasaPictures(props) {
     const [picture, setPicture] = useState([])
-
 
     useEffect(() => {
         axios
@@ -31,7 +33,7 @@ export default function NasaPictures(props) {
                 <CardImg alt="NASA POTD" src={picture.url}/>
                 <CardText>{picture.explanation}</CardText>
                 </CardBody>
-                <Button>Like</Button>
+                <LikeButton />
             </Card>
         </div>
     )
